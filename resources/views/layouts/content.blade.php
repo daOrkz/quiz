@@ -11,6 +11,6 @@
         <div class="col-10">
           @yield('quiz-content')
         </div>
-        
+
       </div>
 @endsection
