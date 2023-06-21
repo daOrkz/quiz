@@ -4,5 +4,7 @@
 
   @include('includes.content.sidebar')
 
-  <h4>layouts.content</h4>
+  @yield('quiz-content')
+
 @endsection
+
