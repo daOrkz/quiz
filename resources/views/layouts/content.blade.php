@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+      <div class="row">
 
-  @include('includes.content.sidebar')
+        <div class="col-2">
+          @include('includes.content.sidebar')
+        </div>
 
-  @yield('quiz-content')
-
+        <div class="col-10">
+          @yield('quiz-content')
+        </div>
+        
+      </div>
 @endsection
-
