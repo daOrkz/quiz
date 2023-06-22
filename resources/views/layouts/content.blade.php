@@ -5,7 +5,7 @@
       <div class="row">
 
         <div class="col-2">
-          @include('includes.content.sidebar')
+          @include('includes.quiz.sidebar')
         </div>
 
         <div class="col-10">
