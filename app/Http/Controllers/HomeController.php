@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('quiz.home');
+
+        $userName = auth()->user()->name;
+        $userTableName = $userName . '_table';
+
+        $quizes = DB::table($userTableName)->count();
+
+        $data = [
+            'userName' => $userName,
+            'quizes'   => $quizes,
+        ];
+
+        return view('quiz.home', compact('data'));
     }
 }
