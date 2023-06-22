@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
+    Route::get('/', 'IndexController')->name('index');
+});
