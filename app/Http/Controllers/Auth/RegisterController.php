@@ -67,20 +67,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-                
-        $userTableName = $data['name'] . '_table';
-
-        Schema::create($userTableName, function (Blueprint $table) {
-            $table->id();
-            $table->text('question');
-            $table->string('answer');
-        });
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        
     }
 }

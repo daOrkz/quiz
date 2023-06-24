@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Questions;
 
 class HomeController extends Controller
 {
@@ -26,9 +27,11 @@ class HomeController extends Controller
     {
 
         $userName = auth()->user()->name;
-        $userTableName = $userName . '_table';
+        $userId = auth()->user()->id;
 
-        $quizes = DB::table($userTableName)->count();
+        
+        // $quizes = DB::table($userTableName)->count();
+        $quizes = Questions::where('user_id', $userId)->count();
 
         $data = [
             'userName' => $userName,

@@ -7,7 +7,7 @@
   <form action="{{ route('quiz.store') }}" method="POST">
     @csrf
     <div class="mb-3">
-      <label for="question" class="form-label">Добавить текст</label>
+      <label for="question" class="form-label">Текст вопроса</label>
       <textarea name="question" class="form-control" id="question" rows="3"></textarea>
     </div>
 
