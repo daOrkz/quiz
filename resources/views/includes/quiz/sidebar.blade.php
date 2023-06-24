@@ -3,7 +3,7 @@
     <a class="nav-link active" href="{{ route('quiz.index') }}">Пройти тесты</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Добавить</a>
+    <a class="nav-link" href="{{ route('quiz.create') }}">Добавить</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Редактировать</a>

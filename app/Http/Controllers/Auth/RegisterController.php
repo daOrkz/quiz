@@ -72,8 +72,8 @@ class RegisterController extends Controller
 
         Schema::create($userTableName, function (Blueprint $table) {
             $table->id();
-            $table->string('text');
-            $table->string('place');
+            $table->text('question');
+            $table->string('answer');
         });
 
         return User::create([

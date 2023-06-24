@@ -23,4 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
     Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+
+
+    Route::post('/create', 'StoreController')->name('store');
 });
