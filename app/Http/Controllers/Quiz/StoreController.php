@@ -9,7 +9,12 @@ class StoreController extends Controller {
   
   public function __invoke(Request $request)
   {
-    $data = $request->all();
+    $data = $request->validate([
+      'question' => ['required', 'string', 'max:255'],
+      'correct_answer' => ['required', 'string', 'max:255'],
+      'incorrect_answer' => '',
+    ]);
+    
     dd($data);
   }
 }
