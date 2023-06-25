@@ -14,7 +14,7 @@ class CreateCorrectAnswersTable extends Migration
     public function up()
     {
         Schema::create('correct_answers', function (Blueprint $table) {
-            $table->foreignId('question_id')->constrained();
+            $table->foreignId('question_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('answer');
         });
     }

@@ -11,4 +11,6 @@ class IncorrectAnswer extends Model
 
     protected $table = 'incorrect_answers';
     protected $guarded = false;
+    public $timestamps = false;
+
 }

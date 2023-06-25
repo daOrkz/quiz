@@ -11,4 +11,6 @@ class CorrectAnswer extends Model
 
     protected $table = 'correct_answers';
     protected $guarded = false;
+    public $timestamps = false;
+
 }
