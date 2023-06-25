@@ -20,39 +20,20 @@ class StoreController extends Controller {
     $question = [
       'question' => $data['question'],
     ];
-
-    
-    $questionDB = User::find($userId)->question()->firstOrCreate($question);
-  
-    /* 
-    $q = Questions::find(2);
-    $u = $q->user->name;
-    */
-
-
         
     $correct_answer = [
       'answer' => $data['correct_answer'],
     ];
 
+    $questionDB = User::find($userId)->question()->firstOrCreate($question);
+
     $questionDB->correct()->firstOrCreate($correct_answer);
 
-    exit();
-
-    $incorrect_answers = [
-      'answer' => $data['incorrect_answer']
-    ];
-
-    
-    Questions::firstOrCreate($question);
-    CorrectAnswer::firstOrCreate($correct_answer);
-    
-    foreach($incorrect_answers as $incorrect_answer){
-      IncorrectAnswer::firstOrCreate($incorrect_answer);
+    foreach($data['incorrect_answer'] as $incorrect_answer){
+      $questionDB->incorrect()->firstOrCreate(['answer' => $incorrect_answer]);
     }
-    
-    $data = [];
+        
 
-    redirect(route('home'));
+    return redirect(route('home'));
   }
 }
