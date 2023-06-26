@@ -24,8 +24,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
-    Route::get('/', 'IndexController')->name('index');
+    // Route::get('/', 'IndexController')->name('index');
     Route::get('/create', 'CreateController')->name('create');
+    Route::get('/check', 'CheckingAnswer')->name('check');
+    Route::get('/show', 'ShowController')->name('show');
 
 
     Route::post('/create', 'StoreController')->name('store');
