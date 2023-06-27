@@ -15,14 +15,30 @@ class ShowController extends Controller {
     $randomQuestion = Questions::where('user_id', $userId)->get()->random();
 
        
-    $correct = $randomQuestion->correct;
-    $incorrect = $randomQuestion->incorrect;
+    $correct = $randomQuestion->correct->answer;
+    $incorrect = $randomQuestion->incorrect->toArray();
+    $answers = [];
 
-    $data = [
-      'correct' => $correct,
-      'incorrect' => $incorrect,
-    ];
+    $answers[] = "
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <input class='form-check-input' type='radio' name='answer' value='correct'>
+          <p class='lead'> {$correct} </p>
+        </label>
+      </div>";
+    
+    foreach ($incorrect as $elem) {
+      $answers[] = "
+        <div class='form-check'>
+          <label class='form-check-label'>
+          <input class='form-check-input' type='radio' name='answer' value='incorrect'>
+            <p class='lead'> {$elem['answer']} </p>
+          </label>
+        </div>";
+    }
 
-    return view('quiz.show', compact($data));
+    shuffle($answers);
+
+    return view('quiz.show', compact('randomQuestion', 'answers'));
   }
 }
