@@ -8,15 +8,20 @@ use App\Models\Questions;
 
 class ShowController extends Controller {
   
-  public function __invoke()
+  public function __invoke(Questions $question = null)
   {
-    $userId = auth()->user()->id;
+    
+    if(!$question){
 
-    $randomQuestion = Questions::where('user_id', $userId)->get()->random();
+      $userId = auth()->user()->id;
+      
+      $question = Questions::where('user_id', $userId)->get()->random();
+    }
 
-       
-    $correct = $randomQuestion->correct->answer;
-    $incorrect = $randomQuestion->incorrect->toArray();
+    
+    $correct = $question->correct->answer;
+    $incorrect = $question->incorrect->toArray();
+
     $answers = [];
 
     $answers[] = "
@@ -39,6 +44,6 @@ class ShowController extends Controller {
 
     shuffle($answers);
 
-    return view('quiz.show', compact('randomQuestion', 'answers'));
+    return view('quiz.show', compact('question', 'answers'));
   }
 }

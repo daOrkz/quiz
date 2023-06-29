@@ -4,17 +4,20 @@ namespace App\Http\Controllers\Quiz;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Questions;
 
 
 class CheckingAnswer extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Questions $question)
     {
-        $answer = request()->answer;
+        $UserAnswer = request()->answer;
 
-        if($answer == 'correct') dd('correct');
+        if($UserAnswer == 'incorrect')  return redirect()->back()->withErrors(['UserAnswer' => 'Не верный ответ']);
 
-        return redirect()->back()->withErrors(['answer' => 'incorrect']);
-        // return view('quiz.index');
+    
+        return redirect()->back()->withErrors(['UserAnswer' => 'Верный ответ']);
+
+        // return redirect(route('quiz.show', compact('question', 'UserAnswer')));
     }
 }

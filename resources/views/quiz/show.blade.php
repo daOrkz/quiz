@@ -5,10 +5,10 @@
   <h3>Пройти тест</h3>
 
   <div style= "border: 2px solid black; border-radius: 7px;">
-    <p class="lead m-2"> {{ $randomQuestion['question'] }} </p>
+    <p class="lead m-2"> {{ $question['question'] }} </p>
   </div>
 
-  <form action="{{ route('quiz.check') }}" method="GET">
+  <form action="{{ route('quiz.check', $question->id) }}" method="GET">
     @csrf
 
     <div class="mt-3">
@@ -18,12 +18,12 @@
       {!! $answer !!}
     @endforeach
 
-      @error('answer')
-        <div class="alert alert-danger" role="alert">
-          {{ $message }}
-        </div>
-      @enderror
-
+    @error('UserAnswer')
+      <div class="alert alert-info" role="alert">
+        {{ $message }}
+      </div>
+    @enderror
+        
     </div>
 
    
