@@ -10,8 +10,11 @@ class CheckingAnswer extends Controller
 {
     public function __invoke(Request $request)
     {
-        $data = request();
-        dd($data);
+        $answer = request()->answer;
+
+        if($answer == 'correct') dd('correct');
+
+        return redirect()->back()->withErrors(['answer' => 'incorrect']);
         // return view('quiz.index');
     }
 }
