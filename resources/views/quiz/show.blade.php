@@ -18,17 +18,19 @@
       {!! $answer !!}
     @endforeach
 
-    @error('UserAnswer')
+    @error('userAnswer')
       <div class="alert alert-info" role="alert">
+        {{ $message }}
+      </div>
+    @enderror
+
+    @error('answer')
+      <div class="alert alert-danger" role="alert">
         {{ $message }}
       </div>
     @enderror
         
     </div>
-
-   
-
-    
 
     <button type="submit" class="btn btn-primary">Проверить</button>
     <a class="btn btn-info" href="{{ route('quiz.show') }}">Следующий</a>

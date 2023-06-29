@@ -7,8 +7,6 @@ use App\Http\Requests\Quiz\StoreRequest;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Exceptions\DataBaseException;
-
 use App\Models\CorrectAnswer;
 use App\Models\IncorrectAnswer;
 use App\Models\Questions;

@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers\Quiz;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Questions;
-
+use App\Http\Requests\Quiz\CheckingAnswerRequest;
 
 class CheckingAnswer extends Controller
 {
-    public function __invoke(Questions $question)
+    public function __invoke(CheckingAnswerRequest $request)
     {
-        $UserAnswer = request()->answer;
+        $userAnswer = $request->validated();
 
-        if($UserAnswer == 'incorrect')  return redirect()->back()->withErrors(['UserAnswer' => 'Не верный ответ']);
+        if($userAnswer['answer'] == 'incorrect')  return redirect()->back()->withErrors(['userAnswer' => 'Не верный ответ']);
 
-    
-        return redirect()->back()->withErrors(['UserAnswer' => 'Верный ответ']);
+        return redirect()->back()->withErrors(['userAnswer' => 'Верный ответ']);
 
-        // return redirect(route('quiz.show', compact('question', 'UserAnswer')));
+        // return redirect(route('quiz.show', compact('question', 'userAnswer')));
     }
 }
