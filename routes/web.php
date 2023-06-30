@@ -24,10 +24,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
-    // Route::get('/', 'IndexController')->name('index');
+    Route::get('/', 'IndexController')->name('index');
     Route::get('/create', 'CreateController')->name('create');
     Route::get('/check/{question}', 'CheckingAnswer')->name('check');
     Route::get('/show/{question?}', 'ShowController')->name('show');
+    Route::get('/take/{question?}', 'TakeQuizController')->name('take-quiz');
 
 
     Route::post('/create', 'StoreController')->name('store');

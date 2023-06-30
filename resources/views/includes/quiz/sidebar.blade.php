@@ -3,13 +3,13 @@
     <a class="nav-link active" href="{{ route('home') }}">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="{{ route('quiz.show') }}">Пройти тесты</a>
+    <a class="nav-link active" href="{{ route('quiz.take-quiz') }}">Пройти тесты</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ route('quiz.create') }}">Добавить</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Редактировать</a>
+    <a class="nav-link" href="{{ route('quiz.index') }}">Редактировать</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Disabled</a>
