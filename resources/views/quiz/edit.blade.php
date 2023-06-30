@@ -4,8 +4,10 @@
 
   <h3>Редактировать тест</h3>
 
-  <form action="{{ route('quiz.edit', $question->id) }}" method="POST">
+  <form action="{{ route('quiz.update', $question->id) }}" method="POST">
     @csrf
+    @method('patch')
+    
     <div class="mb-3">
       <label for="question" class="form-label">Текст вопроса</label>
       <textarea name="question" class="mb-3 form-control" id="question" rows="3" placeholder="Текст вопроса" > {{ $question['question'] }} </textarea>

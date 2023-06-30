@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">{{ $question['question'] }}</p>
-          <a href="{{ route('quiz.show', $question->id) }}" class="btn btn-primary">Редактировать</a>
+          <a href="{{ route('quiz.edit', $question->id) }}" class="btn btn-primary">Редактировать</a>
         </div>
       </div> 
     </div>
