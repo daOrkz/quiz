@@ -9,6 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+
         $questions = auth()->user()->questions;
 
         return view('quiz.index', compact('questions'));

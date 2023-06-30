@@ -27,7 +27,8 @@ Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
     Route::get('/', 'IndexController')->name('index');
     Route::get('/create', 'CreateController')->name('create');
     Route::get('/check/{question}', 'CheckingAnswer')->name('check');
-    Route::get('/show/{question?}', 'ShowController')->name('show');
+    Route::get('/{question}', 'ShowController')->where('question', '[0-9]+')->name('show');
+    Route::get('/{question}/edit', 'EditController')->where('question', '[0-9]+')->name('edit');
     Route::get('/take/{question?}', 'TakeQuizController')->name('take-quiz');
 
 

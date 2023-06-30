@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Quiz;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Questions;
+
 class ShowController extends Controller {
   
-  public function __invoke()
+  public function __invoke(Questions $question)
   {
-
-    dd('Show Controller');
-    // return view('quiz.create');
+    return view('quiz.show', compact('question'));
   }
 }

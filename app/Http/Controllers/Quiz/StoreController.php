@@ -22,7 +22,7 @@ class StoreController extends Controller {
     try{
       DB::transaction(function() use ($data) { 
 
-        $userId = auth()->user()->id;
+        // $userId = auth()->user()->id;
 
         $question = [
           'question' => $data['question'],
@@ -32,7 +32,7 @@ class StoreController extends Controller {
           'answer' => $data['correct_answer'],
         ];
 
-        $questionDB = User::find($userId)->question()->firstOrCreate($question);
+        $questionDB = auth()->user()->questions()->firstOrCreate($question);
 
         $questionDB->correct()->firstOrCreate($correct_answer);
 

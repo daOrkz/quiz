@@ -33,7 +33,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Проверить</button>
-    <a class="btn btn-info" href="{{ route('quiz.show') }}">Следующий</a>
+    <a class="btn btn-info" href="{{ route('quiz.take-quiz') }}">Следующий</a>
   </form>
 
 @endsection
