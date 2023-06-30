@@ -10,6 +10,21 @@ class EditController extends Controller {
   
   public function __invoke(Questions $question)
   {
-    return view('quiz.edit', compact('question'));
+    $correct = $question->correct->answer;
+    $incorrect = $question->incorrect->toArray();
+
+    $answers = [];
+
+    $data = [
+      'question' => $question['question'],
+      'correct_answer' => $correct,
+      'incorrect_answer' => [],
+    ];
+
+    foreach($incorrect as $answer){
+      $data['incorrect_answer'][] = $answer['answer'];
+    }
+
+    return view('quiz.edit', compact('question', 'data'));
   }
 }
