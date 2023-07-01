@@ -26,7 +26,7 @@
       @enderror
 
       <label for="incorrect_answer" class="form-label">Остальные варианты</label>
-      <input name="incorrect_answer[]" type="text" class="form-control mb-3" id="incorrect_answer" placeholder="Вариант ответа № 2">
+      <input name="incorrect_answer[]" type="text" class="form-control mb-3"  placeholder="Вариант ответа № 2">
       <input name="incorrect_answer[]" type="text" class="form-control mb-3"  placeholder="Вариант ответа № 3">
       <input name="incorrect_answer[]" type="text" class="form-control mb-3"  placeholder="Вариант ответа № 4">
     </div>

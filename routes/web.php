@@ -34,4 +34,5 @@ Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
 
     Route::post('/create', 'StoreController')->name('store');
     Route::patch('/{question}', 'UpdateController')->where('question', '[0-9]+')->name('update');
+    Route::delete('/{question}', 'DestroyController')->where('question', '[0-9]+')->name('destroy');
 });

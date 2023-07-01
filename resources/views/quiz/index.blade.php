@@ -12,7 +12,13 @@
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">{{ $question['question'] }}</p>
-          <a href="{{ route('quiz.edit', $question->id) }}" class="btn btn-primary">Редактировать</a>
+          <a href="{{ route('quiz.edit', $question->id) }}" class="btn btn-primary mb-3">Редактировать</a>
+
+          <form action="{{ route('quiz.destroy', $question->id) }}" method="POST">
+            @csrf
+            @method('delete')
+            <input type="submit" class="btn btn-danger" value="Удалить">
+          </form>
         </div>
       </div> 
     </div>

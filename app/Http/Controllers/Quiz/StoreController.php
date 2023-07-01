@@ -20,6 +20,8 @@ class StoreController extends Controller {
 
         // $userId = auth()->user()->id;
 
+        // dd($data);
+
         $question = [
           'question' => $data['question'],
         ];
@@ -34,11 +36,12 @@ class StoreController extends Controller {
 
         
         foreach($data['incorrect_answer'] as $incorrect_answer){
-          $questionDB->incorrect()->firstOrCreate(['answer' => $incorrect_answer]);
+          if(isset($incorrect_answer)) $questionDB->incorrect()->create(['answer' => $incorrect_answer]);
         }
           
       }, 3);
     } catch (Exception $e) {
+      dd($e);
       return redirect(route('error'));
     }
 
