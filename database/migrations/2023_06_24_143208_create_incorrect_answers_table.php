@@ -14,6 +14,7 @@ class CreateIncorrectAnswersTable extends Migration
     public function up()
     {
         Schema::create('incorrect_answers', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('question_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('answer');
         });

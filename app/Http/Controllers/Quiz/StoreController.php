@@ -7,10 +7,6 @@ use App\Http\Requests\Quiz\StoreRequest;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Models\CorrectAnswer;
-use App\Models\IncorrectAnswer;
-use App\Models\Questions;
-use App\Models\User;
 use Exception;
 
 class StoreController extends Controller {

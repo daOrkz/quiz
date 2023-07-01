@@ -30,7 +30,7 @@
       <label for="incorrect_answer" class="form-label">Остальные варианты</label>
 
       @foreach ($data['incorrect_answer'] as $answer)
-        <input name="incorrect_answer" type="text" class="form-control mb-3" placeholder="Вариант ответа № {{ $loop->index }}" value="{{ $answer }}">
+        <input name="incorrect_answer[]" type="text" class="form-control mb-3" placeholder="Вариант ответа № {{ $loop->index }}" value="{{ $answer }}">
       @endforeach
 
     </div>
