@@ -25,6 +25,10 @@
     @endforeach
 
   </div>
+
+  <div class="row text-center">
+    {{ $questions->links() }}
+  </div>
 </div>
 
 @endsection
