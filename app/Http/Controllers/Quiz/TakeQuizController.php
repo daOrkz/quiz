@@ -12,10 +12,15 @@ class TakeQuizController extends Controller {
   {
     
     if(!$question){
-
-      $userId = auth()->user()->id;
       
+      $userId = auth()->user()->id;
+
+      Questions::where('user_id', $userId)->firstOrFail();
+
       $question = Questions::where('user_id', $userId)->get()->random();
+
+      if(is_null($question)) return redirect(route('home'));
+      
     }
 
     
