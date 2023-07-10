@@ -31,7 +31,7 @@ class IndexController extends Controller
             ->filter($filter)
             ->paginate(6);
 
-        /* One search for Question and Correc Answer
+        /* One search for Question and Correct Answer
 
         if (!empty($_GET['search'])) {        
 

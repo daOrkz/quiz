@@ -5,6 +5,19 @@
 <div class="container text-center">
   <div class="row">
 
+  <form action="{{ route('quiz.index') }}" method="get">
+    <div class="container text-center">
+      <div class="row justify-content-md-center" >
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Поиск по вопросам" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button">Искать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
     @foreach ($questions as $question)
     <div class="col-4">
       <div class="card border-info  mb-3" style="width: 18rem;">
