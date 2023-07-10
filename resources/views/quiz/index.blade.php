@@ -10,7 +10,7 @@
       <div class="row justify-content-md-center" >
         <div class="col-6">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Поиск по вопросам" aria-describedby="button-addon2">
+            <input name="question" type="text" class="form-control" placeholder="Поиск по вопросам" aria-describedby="button-addon2">
             <button class="btn btn-primary" type="button">Искать</button>
           </div>
         </div>
