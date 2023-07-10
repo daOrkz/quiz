@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('quiz')->namespace('Quiz')->name('quiz.')->group(function(){
+Route::prefix('quiz')->middleware(['auth'])->namespace('Quiz')->name('quiz.')->group(function(){
     Route::get('/', 'IndexController')->name('index');
     Route::get('/create', 'CreateController')->name('create');
     Route::get('/check/{question}', 'CheckingAnswer')->name('check');

@@ -9,9 +9,13 @@ use App\Models\User;
 use App\Models\CorrectAnswer;
 use App\Models\IncorrectAnswer;
 
+use App\Models\Traits\Filterable;
+use Illuminate\Http\FileHelpers;
+
 class Questions extends Model
 {
     use HasFactory;
+    use Filterable;
 
     protected $table = 'questions';
     protected $guarded = false;

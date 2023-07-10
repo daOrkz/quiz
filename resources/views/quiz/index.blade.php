@@ -11,7 +11,7 @@
         <div class="card-header">Tag</div>
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">{{ $question['question'] }}</p>
+          <p class="card-text">{{ $question->question }}</p>
           <a href="{{ route('quiz.edit', $question->id) }}" class="btn btn-primary mb-3">Редактировать</a>
 
           <form action="{{ route('quiz.destroy', $question->id) }}" method="POST">
@@ -27,7 +27,7 @@
   </div>
 
   <div class="row text-center">
-    {{ $questions->links() }}
+    {{ $questions->withQueryString()->links() }}
   </div>
 </div>
 
