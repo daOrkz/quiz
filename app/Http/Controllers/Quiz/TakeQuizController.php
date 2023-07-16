@@ -32,7 +32,7 @@ class TakeQuizController extends Controller {
     $answers[] = "
       <div class='form-check'>
         <label class='form-check-label'>
-          <input class='form-check-input' type='radio' name='answer' value='correct'>
+          <input class='form-check-input' type='radio' name='answer' value='correct' id='correct'>
           <p class='lead'> {$correct} </p>
         </label>
       </div>";

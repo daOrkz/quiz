@@ -11,10 +11,11 @@ class CheckingAnswer extends Controller
     {
         $userAnswer = $request->validated();
 
+
         if($userAnswer['answer'] == 'incorrect')  return redirect()->back()->withErrors(['userAnswer' => 'Не верный ответ']);
 
-        return redirect()->back()->withErrors(['userAnswer' => 'Верный ответ']);
+        // return redirect()->back()->withErrors(['userAnswer' => 'Верный ответ']);
 
-        // return redirect(route('quiz.show', compact('question', 'userAnswer')));
+        return redirect(route('quiz.take-quiz'));
     }
 }

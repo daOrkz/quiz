@@ -13,10 +13,16 @@
 
     <div class="mt-3">
       <p class="lead">Выберете ответ:</p>
-      
+
+      <div class="message" id="info-message">
+        
+      </div>
+
     @foreach ($answers as $answer)
       {!! $answer !!}
     @endforeach
+
+      
 
     @error('userAnswer')
       <div class="alert alert-info" role="alert">
@@ -35,5 +41,10 @@
     <button type="submit" class="btn btn-primary">Проверить</button>
     <a class="btn btn-info" href="{{ route('quiz.take-quiz') }}">Следующий</a>
   </form>
+
+
+  
+  @include('js.take-answer')
+
 
 @endsection
