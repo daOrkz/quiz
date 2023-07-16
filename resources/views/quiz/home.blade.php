@@ -2,10 +2,8 @@
 
 @section('quiz-content')
 
-  <h2>Hello page and Statistic</h2>
+  <h3>Здравствуйте, {{ $data['userName'] }}</h3>
 
-  <h3>Hello, {{ $data['userName'] }}</h3>
-
-  <p>You have are: {{ $data['quizes'] }} quizes</p>
+  <p>У вас всего {{ $data['quizes'] }} тестов</p>
 
 @endsection
