@@ -49,7 +49,7 @@ class User extends Authenticatable
         return $this->hasMany(Questions::class);
     }
 
-    public function userRole(){
+    public function role(){
         return $this->hasOne(UserRole::class);
     }
 }

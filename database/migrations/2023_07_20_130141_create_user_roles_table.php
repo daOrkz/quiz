@@ -14,7 +14,7 @@ class CreateUserRolesTable extends Migration
     public function up()
     {
         Schema::create('user_roles', function (Blueprint $table) {
-            $table->foreignId('users_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('role');
         });
     }

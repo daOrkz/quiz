@@ -33,6 +33,8 @@ Route::prefix('quiz')->middleware(['auth'])->namespace('Quiz')->name('quiz.')->g
     Route::get('/{question}/edit', 'EditController')->where('question', '[0-9]+')->name('edit');
     Route::get('/take/{question?}', 'TakeQuizController')->name('take-quiz');
 
+    Route::get('/admin', 'AdminController')->name('admin');
+
 
     Route::post('/create', 'StoreController')->name('store');
     Route::patch('/{question}', 'UpdateController')->where('question', '[0-9]+')->name('update');
