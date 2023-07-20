@@ -48,4 +48,8 @@ class User extends Authenticatable
 
         return $this->hasMany(Questions::class);
     }
+
+    public function userRole(){
+        return $this->hasOne(UserRole::class);
+    }
 }
