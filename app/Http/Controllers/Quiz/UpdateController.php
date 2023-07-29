@@ -18,6 +18,13 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
 
+        self::transaction($data, $question);
+
+        return redirect(route('home'));
+
+    }
+
+    static function transaction($data, $question) {
         try {
             DB::transaction(function() use ($data, $question){
                 $questionData = [
@@ -40,8 +47,5 @@ class UpdateController extends Controller
         } catch (Exception $e) {
             return redirect(route('error'));
         }
-
-        return redirect(route('home'));
-
     }
 }

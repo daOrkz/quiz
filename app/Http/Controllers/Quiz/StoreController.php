@@ -15,12 +15,17 @@ class StoreController extends Controller {
   {
     $data = $request->validated();
    
+    self::transaction($data);
+
+    return redirect(route('home'));
+  }
+
+  static function transaction($data) {
+
     try{
       DB::transaction(function() use ($data) { 
 
         // $userId = auth()->user()->id;
-
-        // dd($data);
 
         $question = [
           'question' => $data['question'],
@@ -41,10 +46,9 @@ class StoreController extends Controller {
           
       }, 3);
     } catch (Exception $e) {
-      dd($e);
+      
       return redirect(route('error'));
+      
     }
-
-    return redirect(route('home'));
   }
 }

@@ -32,8 +32,6 @@ class HomeController extends Controller
         $userName = auth()->user()->name;
         $userId = auth()->user()->id;
 
-        
-        // $quizes = DB::table($userTableName)->count();
         $quizes = Questions::where('user_id', $userId)->count();
 
         $data = [

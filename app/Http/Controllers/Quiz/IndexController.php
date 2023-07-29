@@ -26,13 +26,13 @@ class IndexController extends Controller
 
         $userId = auth()->user()->id;
 
-        $userQuestions = Questions::where('user_id', $userId)->firstOrFail();
+        Questions::where('user_id', $userId)->firstOrFail();
 
-        $questions = Questions::where('user_id', $userId)    // Illuminate\Database\Eloquent\Builder
+        $questions = Questions::where('user_id', $userId)
             ->filter($filter)
             ->paginate(6);
 
-        /* One search for Question and Correct Answer
+        /* Common search for Question and Correct Answer
 
         if (!empty($_GET['search'])) {        
 

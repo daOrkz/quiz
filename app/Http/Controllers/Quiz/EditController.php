@@ -13,8 +13,6 @@ class EditController extends Controller {
     $correct = $question->correct->answer;
     $incorrect = $question->incorrect->toArray();
 
-    $answers = [];
-
     $data = [
       'question' => $question['question'],
       'correct_answer' => $correct,
