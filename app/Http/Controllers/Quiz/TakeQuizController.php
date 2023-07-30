@@ -27,12 +27,12 @@ class TakeQuizController extends Controller {
     $correct = $question->correct->answer;
     $incorrect = $question->incorrect->toArray();
 
-    $answers = self::renderAnswer($correct, $incorrect);
+    $answers = $this->renderAnswer($correct, $incorrect);
 
     return view('quiz.take-quiz', compact('question', 'answers'));
   }
 
-  static function renderAnswer($correct, $incorrect) {
+  protected function renderAnswer($correct, $incorrect) {
     $answers = [];
 
     $answers[] = "

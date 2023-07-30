@@ -2,10 +2,10 @@
 
 <script type="text/javascript">
 
-let form = document.forms[1];
+let form = document.getElementById('take-form');
 let message = document.getElementById('info-message');
 
-
+console.log(form);
 
 form.addEventListener('submit', function(e){
 
@@ -18,8 +18,8 @@ form.addEventListener('submit', function(e){
     
     renderCorrectMessage();
 
-    return form.submit();
-
+    // return form.submit();
+    return;
   }
 
   renderIncorrectMessage();

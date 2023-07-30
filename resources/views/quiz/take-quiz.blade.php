@@ -8,7 +8,7 @@
     <p class="lead m-2"> {{ $question['question'] }} </p>
   </div>
 
-  <form action="{{ route('quiz.check', $question->id) }}" method="GET">
+  <form action="{{ route('quiz.check', $question->id) }}" id="take-form" method="GET">
     @csrf
 
     <div class="mt-3">

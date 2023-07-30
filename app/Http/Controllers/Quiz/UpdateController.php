@@ -18,13 +18,13 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
 
-        self::transaction($data, $question);
+        $this->transaction($data, $question);
 
         return redirect(route('home'));
 
     }
 
-    static function transaction($data, $question) {
+    protected function transaction($data, $question) {
         try {
             DB::transaction(function() use ($data, $question){
                 $questionData = [

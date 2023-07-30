@@ -15,12 +15,12 @@ class StoreController extends Controller {
   {
     $data = $request->validated();
    
-    self::transaction($data);
+    $this->transaction($data);
 
     return redirect(route('home'));
   }
 
-  static function transaction($data) {
+  protected function transaction($data) {
 
     try{
       DB::transaction(function() use ($data) { 
